@@ -1,0 +1,13 @@
+{
+	"required": true,
+	"package": "com.udu3324.gridfix.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"client": [
+		"ExampleMixin",
+		"CameraMixin",
+		"MouseMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

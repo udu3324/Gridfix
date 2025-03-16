@@ -1,0 +1,44 @@
+{
+	"schemaVersion": 1,
+	"id": "gridfix",
+	"version": "${version}",
+	"name": "Gridfix",
+	"description": "A mod that allows you to fix movement to a grid/reference.",
+	"authors": [
+		"udu3324"
+	],
+	"contact": {
+		"homepage": "https://github.com/udu3324",
+		"sources": "https://github.com/udu3324/Gridfix"
+	},
+	"license": "GPL-3.",
+	"icon": "assets/gridfix/gridfix-512.png",
+	"environment": "client",
+	"entrypoints": {
+		"client": [
+			"com.udu3324.gridfix.Gridfix"
+		]
+	},
+	"mixins": [
+		"gridfix.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.16.10",
+		"minecraft": "~1.21.4",
+		"java": ">=21",
+		"fabric-api": "*",
+		"modmenu": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	},
+	"custom": {
+		"modmenu": {
+			"links": {
+				"Buy me a Coffee!": "https://ko-fi.com/udu3324",
+				"Discord": "https://discord.gg/NXm9tJvyBT"
+			},
+			"update_checker": false
+		}
+	}
+}
