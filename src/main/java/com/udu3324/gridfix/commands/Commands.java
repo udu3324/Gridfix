@@ -12,47 +12,37 @@ public class Commands {
         dispatcher.register(literal("gridfix")
                 .executes(ctx -> help(ctx.getSource()))
                 .then(literal("help").executes(ctx -> help(ctx.getSource())))
-                .then(literal("test").executes(ctx -> test(ctx.getSource())))
-                .then(literal("test2").executes(ctx -> test2(ctx.getSource())))
+                .then(literal("reset").executes(ctx -> reset(ctx.getSource())))
+                .then(literal("cardinal")
+                        .executes(ctx -> Cardinal.help(ctx.getSource()))
+                        .then(literal("n").executes(ctx -> Cardinal.yaw(ctx.getSource(), 180)))
+                        .then(literal("ne").executes(ctx -> Cardinal.yaw(ctx.getSource(), -135)))
+                        .then(literal("e").executes(ctx -> Cardinal.yaw(ctx.getSource(), -90)))
+                        .then(literal("se").executes(ctx -> Cardinal.yaw(ctx.getSource(), -45)))
+                        .then(literal("s").executes(ctx -> Cardinal.yaw(ctx.getSource(), 0)))
+                        .then(literal("sw").executes(ctx -> Cardinal.yaw(ctx.getSource(), 45)))
+                        .then(literal("w").executes(ctx -> Cardinal.yaw(ctx.getSource(), 90)))
+                        .then(literal("nw").executes(ctx -> Cardinal.yaw(ctx.getSource(), 135)))
+                )
         );
     }
 
     public static int help(FabricClientCommandSource source) {
-        source.sendFeedback(Text.literal("Gridfix is by udu3324."));
+        source.sendFeedback(Text.literal("Gridfix is by udu3324!"));
+        //todo
 
         return 1;
     }
 
-    public static int test(FabricClientCommandSource source) {
-        source.sendFeedback(Text.literal("doing the thing"));
+    public static int reset(FabricClientCommandSource source) {
+        source.sendFeedback(Text.literal("Resetting all Gridfix locks."));
 
-        if (Gridfix.yaw == null) {
-            Gridfix.yaw = 180;
-            Gridfix.lockXMouse = true;
-        } else {
-            Gridfix.yaw = null;
-            Gridfix.lockXMouse = false;
-        }
+        Gridfix.yaw = null;
+        Gridfix.pitch = null;
+
+        Gridfix.lockXMouse = false;
+        Gridfix.lockYMouse = false;
 
         return 1;
     }
-
-    public static int test2(FabricClientCommandSource source) {
-        source.sendFeedback(Text.literal("doing the thing2"));
-
-        if (Gridfix.yaw == null) {
-            Gridfix.yaw = 180;
-            Gridfix.pitch = 30;
-            Gridfix.lockXMouse = true;
-            Gridfix.lockYMouse = true;
-        } else {
-            Gridfix.yaw = null;
-            Gridfix.pitch = null;
-            Gridfix.lockXMouse = false;
-            Gridfix.lockYMouse = false;
-        }
-
-        return 1;
-    }
-
 }

@@ -16,7 +16,7 @@ public class CameraMixin {
     private void setRotation(float yaw, float pitch, CallbackInfo ci) {
         if (client.cameraEntity == null) return;
 
-        Gridfix.LOGGER.info("yaw {} | pitch {}", yaw, pitch);
+        //Gridfix.LOGGER.info("yaw {} | pitch {}", yaw, pitch);
 
 
         if (Gridfix.yaw != null) {
