@@ -1,10 +1,12 @@
 package com.udu3324.gridfix.commands;
 
 import com.mojang.brigadier.CommandDispatcher;
+import com.mojang.brigadier.arguments.StringArgumentType;
 import com.udu3324.gridfix.Gridfix;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.minecraft.text.Text;
 
+import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.argument;
 import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.literal;
 
 public class Commands {
@@ -12,18 +14,24 @@ public class Commands {
         dispatcher.register(literal("gridfix")
                 .executes(ctx -> help(ctx.getSource()))
                 .then(literal("help").executes(ctx -> help(ctx.getSource())))
-                .then(literal("reset").executes(ctx -> reset(ctx.getSource())))
-                .then(literal("cardinal")
-                        .executes(ctx -> Cardinal.help(ctx.getSource()))
-                        .then(literal("n").executes(ctx -> Cardinal.yaw(ctx.getSource(), 180)))
-                        .then(literal("ne").executes(ctx -> Cardinal.yaw(ctx.getSource(), -135)))
-                        .then(literal("e").executes(ctx -> Cardinal.yaw(ctx.getSource(), -90)))
-                        .then(literal("se").executes(ctx -> Cardinal.yaw(ctx.getSource(), -45)))
-                        .then(literal("s").executes(ctx -> Cardinal.yaw(ctx.getSource(), 0)))
-                        .then(literal("sw").executes(ctx -> Cardinal.yaw(ctx.getSource(), 45)))
-                        .then(literal("w").executes(ctx -> Cardinal.yaw(ctx.getSource(), 90)))
-                        .then(literal("nw").executes(ctx -> Cardinal.yaw(ctx.getSource(), 135)))
+                .then(literal("unlock_all").executes(ctx -> reset(ctx.getSource())))
+                .then(literal("yaw")
+                        .executes(ctx -> Yaw.help(ctx.getSource()))
+                        .then(argument("angle", StringArgumentType.greedyString()).executes(Yaw::angle))
+                        .then(literal("n").executes(ctx -> Yaw.set(ctx.getSource(), 180)))
+                        .then(literal("ne").executes(ctx -> Yaw.set(ctx.getSource(), -135)))
+                        .then(literal("e").executes(ctx -> Yaw.set(ctx.getSource(), -90)))
+                        .then(literal("se").executes(ctx -> Yaw.set(ctx.getSource(), -45)))
+                        .then(literal("s").executes(ctx -> Yaw.set(ctx.getSource(), 0)))
+                        .then(literal("sw").executes(ctx -> Yaw.set(ctx.getSource(), 45)))
+                        .then(literal("w").executes(ctx -> Yaw.set(ctx.getSource(), 90)))
+                        .then(literal("nw").executes(ctx -> Yaw.set(ctx.getSource(), 135)))
                 )
+                .then(literal("pitch")
+                        .executes(ctx -> Pitch.help(ctx.getSource()))
+                        .then(argument("angle", StringArgumentType.greedyString()).executes(Pitch::angle))
+                )
+                .then(literal("current_angle").executes(ctx -> Current.angle(ctx.getSource())))
         );
     }
 

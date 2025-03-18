@@ -15,8 +15,8 @@ public class Gridfix implements ClientModInitializer {
 	public static Boolean lockXMouse = false;
 	public static Boolean lockYMouse = false;
 
-	public static Integer yaw = null;
-	public static Integer pitch = null;
+	public static Float yaw = null;
+	public static Float pitch = null;
 
 	public static final String MOD_ID = "gridfix";
 
