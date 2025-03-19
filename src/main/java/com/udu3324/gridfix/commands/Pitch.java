@@ -14,6 +14,15 @@ public class Pitch {
         return 1;
     }
 
+    public static int reset(FabricClientCommandSource source) {
+        source.sendFeedback(Text.literal("Unlocking pitch angle."));
+
+        Gridfix.pitch = null;
+        Gridfix.lockYMouse = false;
+
+        return 1;
+    }
+
     public static int angle(CommandContext<FabricClientCommandSource> context) {
         String input = StringArgumentType.getString(context, "angle");
         float parse;

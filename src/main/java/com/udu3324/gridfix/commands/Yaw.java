@@ -14,6 +14,15 @@ public class Yaw {
         return 1;
     }
 
+    public static int reset(FabricClientCommandSource source) {
+        source.sendFeedback(Text.literal("Unlocking yaw angle."));
+
+        Gridfix.yaw = null;
+        Gridfix.lockXMouse = false;
+
+        return 1;
+    }
+
     public static int set(FabricClientCommandSource source, Integer yaw) {
         String direction = switch (yaw) {
             case 180 -> "North";
