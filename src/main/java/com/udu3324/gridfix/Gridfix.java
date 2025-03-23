@@ -1,11 +1,14 @@
 package com.udu3324.gridfix;
 
+import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.brigadier.CommandDispatcher;
 import com.udu3324.gridfix.commands.Commands;
+import com.udu3324.gridfix.utils.Grid;
 import net.fabricmc.api.ClientModInitializer;
 
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
+import net.fabricmc.fabric.api.client.rendering.v1.WorldRenderEvents;
 import net.fabricmc.loader.api.FabricLoader;
 import net.fabricmc.loader.api.Version;
 import net.minecraft.command.CommandRegistryAccess;
@@ -31,6 +34,9 @@ public class Gridfix implements ClientModInitializer {
 
 		// register the commands
 		ClientCommandRegistrationCallback.EVENT.register(Gridfix::registerCommands);
+
+		// register visuals
+		WorldRenderEvents.AFTER_TRANSLUCENT.register(Grid::render);
 	}
 
 	public static void registerCommands(CommandDispatcher<FabricClientCommandSource> dispatcher, CommandRegistryAccess registryAccess) {

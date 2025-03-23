@@ -1,6 +1,6 @@
 package com.udu3324.gridfix.commands;
 
-import com.mojang.brigadier.arguments.StringArgumentType;
+import com.mojang.brigadier.arguments.FloatArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.udu3324.gridfix.Gridfix;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
@@ -45,20 +45,11 @@ public class Yaw {
     }
 
     public static int angle(CommandContext<FabricClientCommandSource> context) {
-        String input = StringArgumentType.getString(context, "angle");
-        float parse;
-
-        // check if it's a valid int
-        try {
-            parse = Float.parseFloat(input);
-        } catch (NumberFormatException e) {
-            context.getSource().sendFeedback(Text.literal("Could not lock view to \"" + input + "\""));
-            return -1;
-        }
+        float input = FloatArgumentType.getFloat(context, "angle");
 
         context.getSource().sendFeedback(Text.literal("Locking view to " + input + " degrees."));
 
-        Gridfix.yaw = parse;
+        Gridfix.yaw = input;
         Gridfix.lockXMouse = true;
 
         return 1;

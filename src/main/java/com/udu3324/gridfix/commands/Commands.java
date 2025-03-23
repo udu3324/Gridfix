@@ -1,6 +1,8 @@
 package com.udu3324.gridfix.commands;
 
 import com.mojang.brigadier.CommandDispatcher;
+import com.mojang.brigadier.arguments.FloatArgumentType;
+import com.mojang.brigadier.arguments.IntegerArgumentType;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.udu3324.gridfix.Gridfix;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
@@ -19,7 +21,7 @@ public class Commands {
                 .then(literal("unlock_all").executes(ctx -> reset(ctx.getSource())))
                 .then(literal("yaw")
                         .executes(ctx -> Yaw.help(ctx.getSource()))
-                        .then(argument("angle", StringArgumentType.greedyString()).executes(Yaw::angle))
+                        .then(argument("angle", FloatArgumentType.floatArg(-180, 180)).executes(Yaw::angle))
                         .then(literal("n").executes(ctx -> Yaw.set(ctx.getSource(), 180)))
                         .then(literal("ne").executes(ctx -> Yaw.set(ctx.getSource(), -135)))
                         .then(literal("e").executes(ctx -> Yaw.set(ctx.getSource(), -90)))
@@ -31,7 +33,7 @@ public class Commands {
                 )
                 .then(literal("pitch")
                         .executes(ctx -> Pitch.help(ctx.getSource()))
-                        .then(argument("angle", StringArgumentType.greedyString()).executes(Pitch::angle))
+                        .then(argument("angle", FloatArgumentType.floatArg(-90, 90)).executes(Pitch::angle))
                 )
                 .then(literal("current_angle").executes(ctx -> Current.angle(ctx.getSource())))
         );
