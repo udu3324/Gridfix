@@ -3,7 +3,6 @@ package com.udu3324.gridfix.commands;
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.FloatArgumentType;
 import com.mojang.brigadier.arguments.IntegerArgumentType;
-import com.mojang.brigadier.arguments.StringArgumentType;
 import com.udu3324.gridfix.Gridfix;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.minecraft.text.*;
@@ -36,6 +35,11 @@ public class Commands {
                         .then(argument("angle", FloatArgumentType.floatArg(-90, 90)).executes(Pitch::angle))
                 )
                 .then(literal("current_angle").executes(ctx -> Current.angle(ctx.getSource())))
+                .then(literal("grid_guide")
+                        .executes(ctx -> GridGuide.help(ctx.getSource()))
+                        .then(literal("toggle").executes(ctx -> GridGuide.toggle(ctx.getSource())))
+                        .then(argument("size", IntegerArgumentType.integer(0, 1000)).executes(GridGuide::size))
+                )
         );
     }
 
@@ -81,6 +85,12 @@ public class Commands {
                 .withColor(TextColor.fromRgb(0xd5f5e4))
                 .withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(Pitch.description)))
                 .withClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/gridfix pitch "))
+        ));
+
+        source.sendFeedback(Text.literal("> grid_guide").styled(style -> style
+                .withColor(TextColor.fromRgb(0xd5f5e4))
+                .withHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, Text.literal(GridGuide.description)))
+                .withClickEvent(new ClickEvent(ClickEvent.Action.SUGGEST_COMMAND, "/gridfix grid_guide "))
         ));
 
         return 1;
