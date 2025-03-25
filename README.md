@@ -17,17 +17,17 @@ Gridfix has many features that can lock the mouse or help guide movement. They a
 | Current   | Lock your viewport to the current angle being held.                                                   |
 
 ## Screenshots
-| ![showcase](https://raw.githubusercontent.com/udu3324/gridfix/refs/heads/main/src/main/resources/assets/gridfix/grid_guide.png) | 
+| ![showcase](https://raw.githubusercontent.com/udu3324/Gridfix/refs/heads/master/src/main/resources/assets/gridfix/grid_guide.png) | 
+|:---------------------------------------------------------------------------------------------------------------------------------:| 
+|                           Screenshot of GridGuide toggled with a size of 3 and jumping at the same time                           |
+
+| ![showcase](https://raw.githubusercontent.com/udu3324/gridfix/refs/heads/master/src/main/resources/assets/gridfix/yaw_lock.png) | 
 |:-------------------------------------------------------------------------------------------------------------------------------:| 
-|                          Screenshot of GridGuide toggled with a size of 3 and jumping at the same time                          |
+|              Screenshot of the Yaw being locked to the southwest cardinal direction. The F2 info is seen as well.               |
 
-| ![showcase](https://raw.githubusercontent.com/udu3324/gridfix/refs/heads/main/src/main/resources/assets/gridfix/yaw_lock.png) | 
-|:-----------------------------------------------------------------------------------------------------------------------------:| 
-|                            Screenshot of the Yaw being locked to the southwest cardinal direction.                            |
-
-| ![showcase](https://raw.githubusercontent.com/udu3324/gridfix/refs/heads/main/src/main/resources/assets/gridfix/help_cmd_v1.png) | 
-|:--------------------------------------------------------------------------------------------------------------------------------:| 
-|                                Screenshot of running /gridfix which shows the available commands                                 |
+| ![showcase](https://raw.githubusercontent.com/udu3324/gridfix/refs/heads/master/src/main/resources/assets/gridfix/help_cmd_v1.png) | 
+|:----------------------------------------------------------------------------------------------------------------------------------:| 
+|                                 Screenshot of running /gridfix which shows the available commands                                  |
 
 ## Installation
 1. Make sure you have **[Fabric](https://fabricmc.net/use/installer/)** installed in your launcher
