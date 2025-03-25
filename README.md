@@ -31,7 +31,7 @@ Gridfix has many features that can lock the mouse or help guide movement. They a
 
 ## Installation
 1. Make sure you have **[Fabric](https://fabricmc.net/use/installer/)** installed in your launcher
-2. Download the latest release of **Gridfix** [here](https://github.com/udu3324/gridfix/releases)
+2. Download the latest release of **Gridfix** [here](https://modrinth.com/mod/gridfix/versions)
 3. Download the latest release of **Fabric API** [here](https://modrinth.com/mod/fabric-api/versions)
 4. Move the **two jars** you downloaded into the mods folder **(its usually .minecraft/mods)**
 5. Launch Minecraft and **enjoy!**
